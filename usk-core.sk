@@ -1,0 +1,41 @@
+#  _    _  _____ _  __
+# | |  | |/ ____| |/ /
+# | |  | | (___ | ' / 
+# | |  | |\___ \|  <  
+# | |__| |____) | . \ 
+#  \____/|_____/|_|\_\
+#
+# UltimateSK - slvoog
+#
+
+command /uskpermission1:
+    permission: usk.admin
+    trigger:
+        stop
+
+command /usk [<text>]:
+    trigger:
+        if player has permission "usk.admin":
+            if arg-1 is "reload":
+                console command "sk reload usk-core.sk"
+                console command "sk reload usk-fun.sk"
+                console command "sk reload usk-items.sk"
+                wait 2 seconds
+                send "&b[USK] &aReloaded."
+            if arg-1 is "help"
+                send "&b[USK] Obtaining all &ocommands&b from &l3&o files..."
+                wait 3 seconds
+                send "&b[USK] All commands found! Creating help message..."
+                wait 1 second
+                send "&8&m----------------------"
+                send "&b[USK] Commands List"
+                send "&b"
+                send "&a/usk [<reload|help>]"
+                send "&7&oEnd of commands."
+                send "&8&m----------------------"
+            if arg-1 is not set:
+                send "&b&lUltimateSK &7by svloogz"
+                send "&aA list of commands is available with &o/usk help"
+        else:
+            send "&b&lUltimateSK &7by svloogz"
+            send "&cYou can not use any subcommands."
